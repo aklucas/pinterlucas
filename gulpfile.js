@@ -1,5 +1,7 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
+reload = browserSync.reload;
+
 
 // Static server
 gulp.task('default', function() {
@@ -8,4 +10,6 @@ gulp.task('default', function() {
             baseDir: "./public"
         }
     });
+
+    gulp.watch('public/**.**').on('change', reload);
 });
